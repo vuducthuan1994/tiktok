@@ -33,7 +33,6 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 // Trang chu
 router.get('/', async function(req, res) {
     let topTrendPost = await getTrendVideo(24);
-    console.log(topTrendPost.collector[0]);
     res.render('client/index', {
             layout: 'client.hbs',
             topTrendPost: topTrendPost.collector
@@ -41,7 +40,17 @@ router.get('/', async function(req, res) {
         }
 
     );
+});
 
+// Man Popular video
+router.get(`/${process.env.R_POPULAR}`, async function(req, res) {
+
+    let topTrendPost = await getTrendVideo(50);
+
+    res.render('client/popular', {
+        layout: 'client.hbs',
+        topTrendPost: topTrendPost.collector
+    });
 });
 
 // router.get('/submit', function(req, res) {
@@ -53,31 +62,7 @@ router.get('/', async function(req, res) {
 
 
 
-// Man post audio
-router.get(`/${process.env.R_VIDEO}/:videoId/:title`, async function(req, res) {
-    const videoId = req.params.videoId;
-    let proxy = null;
-    let result = null;
 
-    result = cache.get(videoId);
-    if (result == undefined || result == null) {
-        if (req.config.use_proxy_video) {
-            proxy = await getProxy();
-        }
-        console.log('client', proxy)
-        result = await getDetailVideo(videoId, proxy);
-        // console.log(result);
-        if (result !== null) {
-            cache.set(videoId, result);
-        }
-    }
-
-    res.locals.metaTags.title = req.config.settings.title_post.replace('_title_', result.title);
-    res.locals.metaTags.description = req.config.settings.desc_post.replace('_desc_', result.title);
-    res.locals.metaTags.image = result.thumbnailUrl ? result.thumbnailUrl : '#';
-
-    res.render('client/video', { result: result });
-});
 
 // download - detail
 router.get(`/${process.env.R_DOWNLOAD}/:videoId/:title`, async function(req, res) {

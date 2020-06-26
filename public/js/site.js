@@ -16,23 +16,7 @@ $('.searchselect').bind("DOMSubtreeModified", function() {
     }
 });
 
-function checkAdBlock() {
-    var appendthis = ("<div class='adblock-modal-overlay js-modal-close'></div>");
-    setTimeout(function() {
-        if (typeof(window.google_jobrunner) === "undefined") {
-            gtag('event', 'adBlock', { 'event_category': userCountry, 'event_label': window.location.href });
-            console.log("ad blocking.");
-        } else { console.log("no ad blocking found."); }
-    }, 10000);
-    $(".js-modal-close, .adblock-modal-overlay").click(function() {
-        $(".adblock-modal-box, .adblock-modal-overlay").fadeOut(500, function() {
-            $(".adblock-modal-overlay").remove();
-            $("body").css("overflow", "auto");
-        });
-    });
-    $(window).resize(function() { $(".adblock-modal-box").css({ top: ($(window).height() - $(".adblock-modal-box").outerHeight()) / 2, left: ($(window).width() - $(".adblock-modal-box").outerWidth()) / 2 }); });
-    $(window).resize();
-}
+
 
 function initMap(lat, lng, info) {
     var myLatLng = { lat: lat, lng: lng };

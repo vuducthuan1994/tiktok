@@ -1,5 +1,9 @@
-
 {{>client/header}}
+<style type="text/css">
+    .mostPopularTags {
+        margin-bottom: 0px !important;
+    }
+</style>
 <div class="search100" style="background-image:url('/img/tiktok_viewer-background.jpg')">
     <div class="coverphoto-gradient"></div>
     <div class="container">
@@ -20,25 +24,6 @@
 <div id="photoDetail" class="container"></div>
 
 <div class="container">
-    <div style="line-height: 22px;padding: 10px;text-align: center;">
-        <p style="margin: 10px 0;border: 1px solid #f9b234;padding: 10px;color: #5b6365;"><strong>TubZi is not
-                affiliated with Tik Tok. We do not host any of the Tik Tok videos or images on our servers, all rights
-                belong to their respective owners.</strong></p> <br>
-        <h2 style="text-align: center;padding: 5px;font-size: 20px;font-weight: bold;">What is Tiktok ? </h2>
-        <p>Tik Tok is a short-form, video-sharing app that allows users to create and share 15-second videos, on any
-            topic. Musical.ly was purchased by Chinese company ByteDance in November 2017 and officially absorbed into
-            their already existing app called Tik Tok in August 2018.</p>
-        <p>Tik Tok maintains a separate app for the Chinese market, known as Douyin, which has over 500 million active
-            monthly users. The new app’s logo is a combination of the Musical.ly and Douyin logos.</p>
-        <h2 style="text-align: center;padding: 5px;font-size: 20px;font-weight: bold;">How to Use Tik Tok ? </h2>
-        <p>You don’t have to register for an account on Tik Tok in order to use it. However, registering for an account
-            allows you to follow other users and actually make videos. When you first open the app, you’ll probably feel
-            overwhelmed at the sight of the neverending stream of videos that appear on your home page.</p>
-        <p>Tik Tok shows you recommended videos, as well as videos from the musers that you follow. Scroll through the
-            suggested videos, and click the username on the ones you like. If you enjoy the rest of their content, give
-            them a follow and stay up to date on all of their new posts.</p>
-    </div>
-
 
     <style type="text/css">
         .mostPopularTags {
@@ -87,7 +72,15 @@
 
     <div class="popularphoto">
         <div class="popularphototitle">
-            <h2 class="phtp1">Popular Videos</h2>
+            <h1 class="phtp1">Popular Videos</h1>
+            <div class="photofilterdiv">
+                <div class="breadcrumbs">
+                    <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span
+                                itemprop="title">localhost://4300 </span></a> » </div>
+                    <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/tiktok-popular-videos"
+                            itemprop="url"><span itemprop="title">Popular Videos</span></a></div>
+                </div>
+            </div>
         </div>
         <div class="row" id="popularPhoto">
             {{#each topTrendPost}}
@@ -95,9 +88,8 @@
             {{/each}}
         </div>
     </div>
-    <div class="showMore"> <a class="" href="https://tubzi.com/tiktok-popular-videos"><i class="fa fa-search-plus"
-                aria-hidden="true"></i> More Popular Videos</a> </div>
+
 </div>
-  <script type="text/javascript"> activePage = 'Home';</script>
+<script type="text/javascript"> activePage = 'Top Videos';</script>
 
 {{>client/footer}}

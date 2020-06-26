@@ -195,6 +195,10 @@ module.exports = {
     },
     numberWithCommas(number) {
         return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    },
+    createPopularUrl() {
+        const url = process.env.R_DOMAIN + '/' + process.env.R_POPULAR;
+        return url;
     }
 
 }
