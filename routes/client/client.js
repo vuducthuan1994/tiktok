@@ -29,7 +29,7 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 // Trang chu
 router.get('/', async function(req, res) {
 
-    res.render('client/index');
+    res.render('client/index', { layout: 'client.hbs' });
 
 });
 
