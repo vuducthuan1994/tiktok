@@ -21,29 +21,7 @@ router.use(function(req, res, next) {
 
 // Màn search 
 router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
-    const keyword = req.params.keyword.split('-').join(' ');
-    let songs = cache.get('songs')
-    if (songs == undefined) {
-        songs = await randomSong();
-        cache.set('songs', songs);
-    }
-
-    let results = cache.get(req.params.keyword);
-    if (results == undefined) {
-        let proxy = null;
-        if (req.config.use_proxy_search) {
-            proxy = await getProxy();
-        }
-        results = await searchYoutube(keyword, proxy);
-        // console.log('level 2', results);
-        res.locals.metaTags.title = req.config.settings.title_search.replace('_title_', keyword);
-        res.locals.metaTags.description = req.config.settings.desc_search.replace('_desc_', keyword);
-        res.locals.metaTags.image = results.length > 0 ? results[0].thumbnail : `${req.protocol}://${req.get('host')}/img/homepage.jpg`;
-        if (results && results.length > 0) {
-            cache.set(req.params.keyword, results);
-        }
-    }
-    res.render('client/search', { keyword: keyword, results: results, songs: songs });
+    res.json("OK");
 });
 
 
