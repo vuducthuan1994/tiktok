@@ -20,7 +20,7 @@ const configGeneral = require('./admin/general');
 
 router.use('/proxy', proxy);
 router.use('/users', user);
-router.use('/config/general', configGeneral);
+router.use('/general', configGeneral);
 
 router.get('/', isAuthenticated, function(req, res) {
     res.redirect('/admin/proxy');

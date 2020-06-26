@@ -89,8 +89,8 @@ app.use('/', client);
 
 
 // Moi request voi route ko dinh nghia tro ve trang chu
-app.get('/*', function(req, res) {
-    res.redirect('/');
-});
+// app.get('/*', function(req, res) {
+//     res.redirect('/');
+// });
 
 app.listen(process.env.PORT || 4200);

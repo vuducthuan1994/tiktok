@@ -20,7 +20,7 @@ var isAuthenticated = function(req, res, next) {
 
 router.get('/', isAuthenticated, function(req, res) {
     Settings.findOne({ type: 'general' }, function(err, config) {
-        res.render('admin/pages/config/general/index', { messages: req.flash('message'), title: "Cấu hình chung", config: config.toJSON(), layout: 'admin.hbs' });
+        res.render('admin/general/index', { messages: req.flash('message'), title: "Cấu hình chung", config: config.toJSON(), layout: 'admin.hbs' });
     });
 });
 router.post('/', isAuthenticated, function(req, res) {
