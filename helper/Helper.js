@@ -152,13 +152,14 @@ module.exports = {
     },
     timeDifference(previous) {
         const current = new Date().getTime();
+
         var msPerMinute = 60 * 1000;
         var msPerHour = msPerMinute * 60;
         var msPerDay = msPerHour * 24;
         var msPerMonth = msPerDay * 30;
         var msPerYear = msPerDay * 365;
 
-        var elapsed = current - previous;
+        var elapsed = current - previous * 1000;
 
         if (elapsed < msPerMinute) {
             return Math.round(elapsed / 1000) + ' seconds ago';
@@ -167,11 +168,11 @@ module.exports = {
         } else if (elapsed < msPerDay) {
             return Math.round(elapsed / msPerHour) + ' hours ago';
         } else if (elapsed < msPerMonth) {
-            return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+            return Math.round(elapsed / msPerDay) + ' days ago';
         } else if (elapsed < msPerYear) {
-            return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+            return Math.round(elapsed / msPerMonth) + ' months ago';
         } else {
-            return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+            return Math.round(elapsed / msPerYear) + ' years ago';
         }
     },
     checkNull(str) {
@@ -198,6 +199,14 @@ module.exports = {
     },
     createPopularUrl() {
         const url = process.env.R_DOMAIN + '/' + process.env.R_POPULAR;
+        return url;
+    },
+    createHomeUrl() {
+        const url = process.env.R_DOMAIN;
+        return url;
+    },
+    createUrlDetail(account, postId) {
+        const url = `${process.env.R_DOMAIN}/${account}/${process.env.R_DETAIL_VIDEO}/${postId}`;
         return url;
     }
 

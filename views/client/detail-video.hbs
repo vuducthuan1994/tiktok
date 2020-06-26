@@ -1,0 +1,134 @@
+{{>client/header}}
+<style type="text/css">
+    .searchresult {
+        margin-top: 5px;
+    }
+
+    .swiper-slide {
+        width: 160px;
+        height: 330px;
+        cursor: pointer;
+        -webkit-transition: all 250ms ease-in-out;
+        transition: all 250ms ease-in-out;
+        overflow: hidden;
+    }
+
+    .swiper-slide img {
+        height: 330px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h2 {
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    #userStoryFeed {
+        background: #fff;
+    }
+
+    #userStoryFeed .swiper-slide img {
+        width: auto;
+    }
+
+    @media (max-width: 500px) {
+        .swiper-slide {
+            height: 320px;
+        }
+
+        .swiper-slide img {
+            height: 320px;
+        }
+    }
+</style>
+
+
+<div class="container photoDetail">
+    <div class="breadcrumbs">
+        <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="/" itemprop="url"> <span
+                    itemprop="title">TubZi </span> </a> » </div>
+        <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a
+                href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745" itemprop="url"> <span
+                    itemprop="title">neetubisht </span> </a> » </div> <span itemprop="title">neetubisht 's posts </span>
+    </div>
+
+    <div class="searchresult">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 searchresultleft">
+                <div class="searchresultleftdiv">
+                    <div class="pptabdiv">
+                        <ul>
+                            <div>
+                                <li class="pp1"> <a href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745">
+                                        <img src="https://p16-tiktok-sg-h2.ibyteimg.com/aweme/100x100/tiktok-obj/b989e281e7322eb0c100e841552a2159.jpeg"
+                                            alt="Neetu Bisht 😭ooonooo😭@lakhanarjunrawat #mylux❤️ #nbisht #bishtrawat #lakhneet #lakhaneetu #couplegoals #foryou #foryoupage #love #trending #couplecomedy">
+                                        <h2>@neetubisht <strong>Neetu Bisht</strong></h2>
+                                    </a> <span>6 hours ago</span> </li>
+                                <li class="location pp2"></li>
+                                <div style="width:100%; text-align:center;margin-bottom:10px;" class="videoMusicInfo">
+                                    <p><a
+                                            href="https://tubzi.com/neetubisht-original-sound/tiktok-music/6842619606457256705">
+                                            <i class="fa fa-music" aria-hidden="true"></i> {{videoInfo.musicMeta.musicAuthor}} - {{videoInfo.musicMeta.musicName}}</a></p>
+                                </div>
+                                <div style="text-align:center;"> <video id="player" autoplay="" playsinline=""
+                                        controls="" loop="" class="narrowVideo"
+                                        style="padding-left: 10px; padding-bottom:10px" poster="{{videoInfo.imageUrl}}">
+                                        <source src="{{videoInfo.videoUrl}}" type="video/mp4"> </video> </div>
+                            </div>
+                            <p class="photoCaption">
+
+                                {{videoInfo.text}}
+
+                            </p>
+                            <p class="photoAllTags"> <a href="https://tubzi.com//tiktok-tag">#</a></p>
+                            <li class="pp4 pp4Detail"> <span
+                                    title="@neetubisht- Neetu Bisht TubZi TikTok Video Like Count" class="photolike"> <i
+                                        class="fa fa-heart-o" aria-hidden="true"></i> {{numberWithCommas videoInfo.diggCount}}</span> <span
+                                    title="@neetubisht- Neetu Bisht TubZi TikTok Video Comment Count"
+                                    class="photocomment"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{numberWithCommas videoInfo.commentCount}}</span>
+                                <span title="@neetubisht- Neetu Bisht TubZi TikTok Video Share Count"
+                                    class="photocomment"> <i class="fa fa-share" aria-hidden="true"></i> {{numberWithCommas videoInfo.shareCount}}</span>
+                            </li>
+                            <li>
+                                <p class="videoExplain">This video was published by <i>TikTok App</i> 6 hours ago by
+                                    <strong>Neetu Bisht</strong> (neetubisht). Video {{numberWithCommas videoInfo.diggCount}} Liked by tiktok users, has
+                                    received {{numberWithCommas videoInfo.commentCount}} comments and has been published {{numberWithCommas videoInfo.shareCount}} times in total. </p>
+                            </li>
+                            <li> </li>
+                            <li class="pp5"> <a class="ppa ppa1"
+                                    href="https://v19.tiktokcdn.com/d4a608f5d22543ffbc39017717ac3336/5ef68df7/video/tos/useast2a/tos-useast2a-pve-0068/1d1db6ec0cd04f31bc4f82c584a37fb8/?a=1233&amp;br=2654&amp;bt=1327&amp;cr=0&amp;cs=0&amp;dr=0&amp;ds=3&amp;er=&amp;l=20200626180809010189074148564CDB44&amp;lr=tiktok_m&amp;mime_type=video_mp4&amp;qs=0&amp;rc=MzdlOGQ0a2l3dTMzZjczM0ApaTw0Z2ZkNmU6N2U6PGZlOWc1Ll4wLW5ecG5fLS0yMTZzczNjMmIwMF4xLWEwMC1jMmM6Yw%3D%3D&amp;vl=&amp;vr="
+                                    download=""><i class="fa fa-download"></i> Download This Video</a> <a
+                                    class="ppa ppa1"
+                                    href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745"><i
+                                        class="fa fa-search"></i>Other Videos</a> </li>
+                        </ul>
+                    </div>
+                    <h2 class="phtp1">TikTok Popular Videos</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{>client/footer}}
+<script type="text/javascript"> activePage = 'Top Videos';</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+<script type="text/javascript"> $(document).ready(function () {
+        $(".searchresultrightdiv").css("max-height", $(".searchresultleft").height()); parseEmoji();
+    });
+    $("#img_6822810817029803269").hover(function () { $(".userinpic").css("display", "block"); },
+        function () { $(".userinpic").css("display", "none"); }); $(".userinpic").hover(function () { $(".userinpic").css("display", "block"); },
+            function () { $(".userinpic").css("display", "none"); });
+    var swiper = new Swiper("#stroiesGallery", {
+        pagination: "#stroiesGallery .swiper-pagination",
+        preloadImages: false, lazy: true,
+        watchSlidesVisibility: true,
+        nextButton: "#stroiesGallery .swiper-button-next",
+        prevButton: "#stroiesGallery .swiper-button-prev",
+        slidesPerView: 3, paginationClickable: true,
+        spaceBetween: 5,
+        breakpoints: { 1024: { slidesPerView: 3, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 20, }, 420: { slidesPerView: 1, spaceBetween: 10, } }
+    });
+</script>

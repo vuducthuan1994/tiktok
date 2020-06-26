@@ -7,12 +7,11 @@
                     href="https://tubzi.com/jdk.official/tiktok-user/6743276500088259590">@{{this.authorMeta.name}}</a>
                 <a
                     href="https://tubzi.com/jdk.official/tiktok-user/6743276500088259590">{{this.authorMeta.nickName}}</a>
-                <span>2
-                    weeks ago</span> </li>
+                <span>{{timeDifference this.createTime}}</span> </li>
             <li class="pp2 location"></li>
             <li class="pp3" style="overflow:hidden;"> <span title="DE Country Tiktok Video"
                     class="region flag-icon-de"></span> <i class="pVideo fa fa-youtube-play"></i> <a
-                    href="https://tubzi.com/jdk.official/tiktok-video/6837459513809898758">
+                    href="{{createUrlDetail  this.authorMeta.name this.id}}">
                     <img class="lazy_photo"
                         title="{{this.authorMeta.nickName}} - @{{this.authorMeta.name}} - {{this.text}}"
                         data-src="{{this.covers.dynamic}}" alt=""> <span>{{this.authorMeta.nickName}} - @{{this.authorMeta.name}} - {{this.text}}</span> </a> </li>

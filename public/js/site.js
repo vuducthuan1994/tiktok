@@ -138,7 +138,7 @@ $("#searchText").keyup(function(event) { if (event.keyCode == 13) { $("#searchBu
 
 function setMainMenuActive(menuItem) {
     $(".topmenudiv ul li").removeClass('active');
-    $(".topmenudiv ul li").each(function(index) { if ($(this).text() == menuItem) { $(this).addClass("active", 1000, "easeOutBounce"); } });
+    $(".topmenudiv ul li").each(function(index) { if ($(this).text().trim() == menuItem.trim()) { $(this).addClass("active", 1000, "easeOutBounce"); } });
 }
 var ready = true;
 $(window).scroll(function() {

@@ -33,6 +33,7 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 // Trang chu
 router.get('/', async function(req, res) {
     let topTrendPost = await getTrendVideo(24);
+    console.log(topTrendPost.collector[0])
     res.render('client/index', {
             layout: 'client.hbs',
             topTrendPost: topTrendPost.collector
@@ -45,12 +46,32 @@ router.get('/', async function(req, res) {
 // Man Popular video
 router.get(`/${process.env.R_POPULAR}`, async function(req, res) {
 
-    let topTrendPost = await getTrendVideo(50);
+    let topTrendPost = await getTrendVideo(100);
 
     res.render('client/popular', {
         layout: 'client.hbs',
         topTrendPost: topTrendPost.collector
     });
+});
+
+// man detail
+router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
+
+    const account = req.params.account;
+    const id = req.params.id;
+    let topTrendPost = getTrendVideo(20);
+    let postDetail = getDetailPost(account, id);
+    let userInfo = getUserInfo(account);
+    Promise.all([topTrendPost, postDetail, userInfo]).then(values => {
+        console.log(values);
+        res.render('client/detail-video', {
+            layout: 'client.hbs',
+            userInfo: values[2] ? values[2] : {},
+            videoInfo: values[1] ? values[1] : {},
+        });
+    })
+
+
 });
 
 // router.get('/submit', function(req, res) {
@@ -166,7 +187,30 @@ let getTrendVideo = function(number) {
         } catch (error) {
             reslove([]);
         }
-    })
+    });
+}
+
+let getDetailPost = function(account, postId) {
+    return new Promise(async function(reslove, reject) {
+        const webVideoUrl = `https://www.tiktok.com/@${account}/video/${postId}`;
+        try {
+            const postDetail = await TikTokScraper.getVideoMeta(webVideoUrl);
+            reslove(postDetail)
+        } catch (error) {
+            reslove(null);
+        }
+    });
+}
+
+let getUserInfo = function(account) {
+    return new Promise(async function(reslove, reject) {
+        try {
+            const accountInfo = await TikTokScraper.getUserProfileInfo(account);
+            reslove(accountInfo)
+        } catch (error) {
+            reslove(null);
+        }
+    });
 }
 
 module.exports = router;
