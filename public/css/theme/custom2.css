@@ -1,0 +1,440 @@
+body {
+    background: #eee;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    color: #222;
+    margin: auto
+}
+
+.wrapped {
+    border: 1px solid #ddd;
+    background: #fff;
+    max-width: 860px;
+    margin: 5px auto 10px auto;
+    width: 100%
+}
+
+.logo {
+    padding: 14px;
+    text-align: center
+}
+
+.menu {
+    padding: 14px
+}
+
+a {
+    text-decoration: none
+}
+
+.divtitle {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 700
+}
+
+.dlink {
+    background: #c00;
+    color: #fff;
+    padding: 4px;
+    margin: 25px
+}
+
+.dlink2 {
+    background: #fa0;
+    color: #fff;
+    padding: 4px;
+    margin: 25px
+}
+
+.dlink3 {
+    background: #0af;
+    color: #fff;
+    padding: 4px;
+    margin: 25px
+}
+
+@media screen and (min-width:1000px) {
+    .nganan {
+        display: table-cell;
+        margin-left: 14px;
+        width: 35%;
+        vertical-align: top
+    }
+    .ngiri {
+        display: table-cell;
+        width: 65%
+    }
+}
+
+.lirik {
+    margin: 4px;
+    padding: 3px;
+    line-height: 200%
+}
+
+.textanu {
+    max-width: 320px;
+    font-size: 15px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    margin: 10px auto;
+    padding: 6px
+}
+
+.foll {
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    font-size: 18px;
+    font-weight: lighter;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    margin: 10px
+}
+
+.foll i {
+    font-size: 15px
+}
+
+.foll-left {
+    width: 33%;
+    padding: 10px;
+    vertical-align: middle;
+    border-right: 1px solid #dedede
+}
+
+.foll-center {
+    width: 33%;
+    padding: 10px;
+    vertical-align: middle
+}
+
+.foll-right {
+    width: 33%;
+    padding: 10px;
+    vertical-align: middle;
+    border-left: 1px solid #dedede
+}
+
+.share-btn {
+    margin: 6px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 3px
+}
+
+.audiobg {
+    color: #fff;
+    text-align: center;
+    padding-top: 40px;
+    background-color: rgba(0, 0, 0, .8)
+}
+
+.audiobg2 {
+    background: url(https://ytimg.googleusercontent.com/vi/hNqdxGsbQsA/mqdefault.jpg) no-repeat center center;
+    background-size: cover
+}
+
+.share-btn.twitter {
+    background: #55acee
+}
+
+.share-btn.whatsapp {
+    background: #1ebea5
+}
+
+.share-btn.facebook {
+    background: #3b5998
+}
+
+@media screen and (min-width:720px) {
+    .album-cover {
+        width: 200px
+    }
+}
+
+@media screen and (max-width:720px) and (min-width:480px) {
+    .album-cover {
+        width: 200px
+    }
+}
+
+@media screen and (max-width:480px) and (min-width:320px) {
+    .album-cover {
+        width: 130px;
+        vertical-align: top
+    }
+}
+
+@media screen and (max-width:320px) {
+    .album-cover {
+        width: 100px;
+        vertical-align: top
+    }
+}
+
+audio {
+    width: 100%;
+    margin-bottom: -5px
+}
+
+.info-album td {
+    border: none
+}
+
+.info-album td {
+    text-align: left;
+    padding: 8px
+}
+
+.info-album img {
+    border-radius: 20px;
+    box-shadow: 6px 6px 28px -4px #000
+}
+
+.download-album {
+    background: #0080fc
+}
+
+.download-iklan {
+    background: #0af
+}
+
+.download-album:hover,
+.download-iklan:hover {
+    background: #444;
+    color: #fff
+}
+
+.download-album,
+.download-iklan {
+    color: #fff;
+    width: 30%;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 6px
+}
+
+.inputsearch #inputform_wrapper {
+    background: #f5f5f5;
+    width: 100%;
+    max-width: 500px;
+    height: 46px;
+    border-radius: 20px;
+    margin: 15px auto;
+    padding-left: 15px;
+    border: 1px solid #007ebd
+}
+
+.inputsearch {
+    color: #00c5d1;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center
+}
+
+.laguterkait {
+    padding: 6px;
+    margin: 2px;
+    border-bottom: 1px solid #f2f2f2
+}
+
+.laguterkait a {
+    color: #0af;
+    font-size: 16px
+}
+
+.laguterkait span {
+    color: #888
+}
+
+.audiobg img {
+    cursor: pointer;
+    width: 200px;
+    max-width: 50%;
+    border-radius: 5px;
+    box-shadow: 6px 6px 28px -4px #333
+}
+
+.inputtext {
+    color: #333;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    font-weight: 400;
+    float: left;
+    width: 83.33333333333333%;
+    height: 44px;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    padding: 0 .8333333333333333%;
+    outline: 0
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.inputbutton {
+    color: #fff;
+    border-radius: 20px 20px 20px 20px;
+    background-color: #0080fc;
+    font-size: 13px;
+    font-weight: 700;
+    float: left;
+    width: 14.16666666666667%;
+    height: 34px;
+    border: none;
+    border: 2px;
+    margin: 5px .8333333333333333% 5px;
+    padding: 0;
+    cursor: pointer;
+    outline: 0
+}
+
+.crop img {
+    height: 100%;
+    width: auto
+}
+
+.logobaru {
+    background: rgba(0, 0, 0, .5);
+    margin-bottom: 30px;
+    padding: 9px;
+    text-align: center
+}
+
+.logobaru img {
+    height: 85px
+}
+
+.fle {
+    float: left;
+    color: #fff
+}
+
+.fri {
+    float: right;
+    color: #fff
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px
+}
+
+.switch input {
+    display: none
+}
+
+.hmmm {
+    width: 100%;
+    vertical-align: top;
+    line-height: 2.7
+}
+
+.hmmm h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4em
+}
+
+.hmmm togel {
+    line-height: 2.7em
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s
+}
+
+.iklan-uc {
+    padding: 6px;
+    border-radius: 4px;
+    background: #0af;
+    color: #fff;
+    margin: 4px
+}
+
+.adnotice {
+    padding: 3px;
+    border-radius: 4px;
+    background: #fa0;
+    color: #fff;
+    font-size: 12px
+}
+
+.adnotice a:hover,
+iklan-uc a:hover {
+    color: #fff
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s
+}
+
+input:checked+.slider {
+    background-color: #2196f3
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196f3
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px)
+}
+
+.slider.round {
+    border-radius: 34px
+}
+
+.slider.round:before {
+    border-radius: 50%
+}
+
+a,
+audio,
+b,
+blockquote,
+button,
+div,
+em,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+i,
+iframe,
+img,
+li,
+p,
+span,
+strong,
+table,
+td,
+tr {
+    word-wrap: break-word
+}
