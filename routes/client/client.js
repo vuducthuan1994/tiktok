@@ -1,16 +1,11 @@
 let express = require('express');
 let router = express.Router();
-const search = require('scrape-youtube');
 
 require('dotenv').config();
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: process.env.CACHE_TIME });
-
-//Define model db
-const Clients = require('../models/clientModel');
-const Songs = require('../../models/songModel');
 const Proxys = require('../../models/proxyModel');
-// Done Define model db
+
 
 const util = require('../../helper/Helper');
 const { ObjectId } = require('mongodb').ObjectID;

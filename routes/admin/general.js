@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Settings = require('../../../models/settingModel');
+const Settings = require('../../models/settingModel');
 var uslug = require('uslug');
 var fs = require('fs');
 const formidable = require('formidable');
