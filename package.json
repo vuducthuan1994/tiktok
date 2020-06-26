@@ -38,6 +38,7 @@
         "passport-local": "^1.0.0",
         "request-promise": "^4.2.5",
         "sitemap": "^6.1.2",
+        "tiktok-scraper": "^1.2.5",
         "uslug": "^1.0.4"
     }
 }

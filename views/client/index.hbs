@@ -117,6 +117,8 @@
             <h2 class="phtp1">Popular Videos</h2>
         </div>
         <div class="row" id="popularPhoto">
+
+            {{#each topTrendPost}}
             <div class="col-sm-12 col-md-6 col-lg-4 pptab">
                 <div class="pptabdiv">
                     <ul>
@@ -129,9 +131,10 @@
                         <li class="pp2 location"></li>
                         <li class="pp3" style="overflow:hidden;"> <span title="DE Country Tiktok Video"
                                 class="region flag-icon-de"></span> <i class="pVideo fa fa-youtube-play"></i> <a
-                                href="https://tubzi.com/jdk.official/tiktok-video/6837459513809898758"> <img
+                                href="https://tubzi.com/jdk.official/tiktok-video/6837459513809898758"> 
+                                <img class="lazy_photo"
                                     title="JDK - @jdk.official - Teil 5! Nimmt es nicht zu ernst ist nur Unterhaltung 🤷🏾‍♂️ #fyp #foryoupage #fürdich #education #bildung #schoolbelike Instagram:jdk.official"
-                                    src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/033f137887394a499203aab189876b75_1591970104?x-expires=1593352800&amp;x-signature=5DnFwXX%2BVriavwXjKtJUlBI1n8c%3D"
+                                    data-src = "{{this.covers.dynamic}}"
                                     alt=""> <span>JDK - @jdk.official - Teil 5! Nimmt es nicht zu ernst ist nur
                                     Unterhaltung 🤷🏾‍♂️ #fyp #foryoupage #fürdich #education #bildung #schoolbelike
                                     Instagram:jdk.official</span> </a> </li>
@@ -144,6 +147,8 @@
                     </ul>
                 </div>
             </div>
+            {{/each}}
+
         </div>
     </div>
 </div>

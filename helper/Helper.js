@@ -184,28 +184,17 @@ module.exports = {
         const protocol = proxy.protocol ? proxy.protocol : 'http';
         return `${protocol}://${proxy.user}:${proxy.password}@${proxy.ip}:${proxy.port}`;
     },
-    formatDate(dt) {
-        return (`${
-            (dt.getMonth()+1).toString().padStart(2, '0')}/${
-            dt.getDate().toString().padStart(2, '0')}/${
-            dt.getFullYear().toString().padStart(4, '0')} ${
-            dt.getHours().toString().padStart(2, '0')}:${
-            dt.getMinutes().toString().padStart(2, '0')}:${
-            dt.getSeconds().toString().padStart(2, '0')}`);
-    },
+
     createFieldName(index, data) {
         // console.log(data);
         return data.replace('0', index);
     },
-    bytesToSize(bytes) {
 
-        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-        if (bytes == 0) return '0 Byte';
-        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-        return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-    },
     checked(currentValue) {
         return currentValue ? 'checked' : '';
+    },
+    numberWithCommas(number) {
+        return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
 
 }

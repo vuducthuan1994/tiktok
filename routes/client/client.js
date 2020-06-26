@@ -14,6 +14,10 @@ const { SitemapStream, streamToPromise } = require('sitemap')
 const { createGzip } = require('zlib')
 let sitemap;
 
+
+const TikTokScraper = require('tiktok-scraper');
+
+
 router.use(function(req, res, next) {
     console.log("next");
     next();
@@ -28,8 +32,15 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 
 // Trang chu
 router.get('/', async function(req, res) {
+    let topTrendPost = await getTrendVideo(24);
+    console.log(topTrendPost.collector[0]);
+    res.render('client/index', {
+            layout: 'client.hbs',
+            topTrendPost: topTrendPost.collector
 
-    res.render('client/index', { layout: 'client.hbs' });
+        }
+
+    );
 
 });
 
@@ -159,6 +170,17 @@ let updateProxy = (proxy) => {
         }, function(err, data) {
             reslove();
         });
+    })
+}
+
+let getTrendVideo = function(number) {
+    return new Promise(async function(reslove, reject) {
+        try {
+            const posts = await TikTokScraper.trend('', { number: number });
+            reslove(posts)
+        } catch (error) {
+            reslove([]);
+        }
     })
 }
 
