@@ -23,7 +23,7 @@ router.use('/users', user);
 router.use('/general', configGeneral);
 
 router.get('/', isAuthenticated, function(req, res) {
-    res.redirect('/admin/proxy');
+    res.redirect('/admin/general');
 });
 
 module.exports = router;
