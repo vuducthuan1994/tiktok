@@ -55,7 +55,8 @@
                     itemprop="title">TubZi </span> </a> » </div>
         <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a
                 href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745" itemprop="url"> <span
-                    itemprop="title">neetubisht </span> </a> » </div> <span itemprop="title">neetubisht 's posts </span>
+                    itemprop="title">{{userInfo.uniqueId}} </span> </a> » </div> <span
+            itemprop="title">{{userInfo.uniqueId}} 's posts </span>
     </div>
 
     <div class="searchresult">
@@ -66,10 +67,9 @@
                         <ul>
                             <div>
                                 <li class="pp1"> <a href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745">
-                                        <img src="https://p16-tiktok-sg-h2.ibyteimg.com/aweme/100x100/tiktok-obj/b989e281e7322eb0c100e841552a2159.jpeg"
-                                            alt="Neetu Bisht 😭ooonooo😭@lakhanarjunrawat #mylux❤️ #nbisht #bishtrawat #lakhneet #lakhaneetu #couplegoals #foryou #foryoupage #love #trending #couplecomedy">
-                                        <h2>@neetubisht <strong>Neetu Bisht</strong></h2>
-                                    </a> <span>6 hours ago</span> </li>
+                                        <img src="{{createAvatarUser userInfo}}" alt=" {{videoInfo.text}}">
+                                        <h2>@{{userInfo.uniqueId}} <strong>{{userInfo.nickName}}</strong></h2>
+                                    </a> <span>{{timeDifference videoInfo.createTime}}</span> </li>
                                 <li class="location pp2"></li>
                                 <div style="width:100%; text-align:center;margin-bottom:10px;" class="videoMusicInfo">
                                     <p><a
@@ -101,8 +101,9 @@
                                     {{numberWithCommas videoInfo.shareCount}}</span>
                             </li>
                             <li>
-                                <p class="videoExplain">This video was published by <i>TikTok App</i> 6 hours ago by
-                                    <strong>Neetu Bisht</strong> (neetubisht). Video
+                                <p class="videoExplain">This post was published on <i>TikTok App</i>
+                                    {{timeDifference videoInfo.createTime}} by
+                                    <strong>{{userInfo.nickName}}</strong> ({{userInfo.uniqueId}}). Video
                                     {{numberWithCommas videoInfo.diggCount}} Liked by tiktok users, has
                                     received {{numberWithCommas videoInfo.commentCount}} comments and has been published
                                     {{numberWithCommas videoInfo.shareCount}} times in total. </p>
@@ -119,46 +120,15 @@
 
                         <div id="stroiesGallery" class="swiper-container swiper-container-horizontal">
                             <div class="swiper-wrapper">
+                                {{#each sliderTrendPosts}}
                                 <div class="swiper-slide"><a
                                         href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
-                                        <figure><img
-                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
-                                                class="swiper-lazy"
-                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
+                                        <figure><img data-src="{{this.covers.dynamic}}" class="swiper-lazy"
+                                                alt="{{this.text}}">
                                         </figure>
                                     </a>
                                 </div>
-
-                                <div class="swiper-slide"><a
-                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
-                                        <figure><img
-                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
-                                                class="swiper-lazy"
-                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
-                                        </figure>
-                                    </a>
-                                </div>
-
-
-                                <div class="swiper-slide"><a
-                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
-                                        <figure><img
-                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
-                                                class="swiper-lazy"
-                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
-                                        </figure>
-                                    </a>
-                                </div>
-
-                                <div class="swiper-slide"><a
-                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
-                                        <figure><img
-                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
-                                                class="swiper-lazy"
-                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
-                                        </figure>
-                                    </a>
-                                </div>
+                                {{/each}}
                             </div>
                             <div class="swiper-button-prev slider-button"><i class="fa fa-chevron-left"></i></div>
                             <div class="swiper-button-next slider-button"><i class="fa fa-chevron-right"></i></div>
@@ -228,10 +198,13 @@
         pagination: "#stroiesGallery .swiper-pagination",
         preloadImages: false, lazy: true,
         watchSlidesVisibility: true,
-        nextButton: "#stroiesGallery .swiper-button-next",
-        prevButton: "#stroiesGallery .swiper-button-prev",
         slidesPerView: 3, paginationClickable: true,
         spaceBetween: 5,
-        breakpoints: { 1024: { slidesPerView: 3, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 20, }, 420: { slidesPerView: 1, spaceBetween: 10, } }
+        breakpoints: { 1024: { slidesPerView: 3, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 20, }, 420: { slidesPerView: 1, spaceBetween: 10, } },
+
+        navigation: {
+            nextEl: "#stroiesGallery .swiper-button-next",
+            prevEl: "#stroiesGallery .swiper-button-prev"
+        }
     });
 </script>

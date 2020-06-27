@@ -195,7 +195,6 @@ module.exports = {
         return currentValue ? 'checked' : '';
     },
     numberWithCommas(number) {
-        console.log(number);
         return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     },
     createPopularUrl() {
@@ -209,6 +208,9 @@ module.exports = {
     createUrlDetail(account, postId) {
         const url = `${process.env.R_DOMAIN}/${account}/${process.env.R_DETAIL_VIDEO}/${postId}`;
         return url;
+    },
+    createAvatarUser(userItem) {
+        return userItem.covers[0] ? userItem.covers[0] : userItem.coversMedium[0];
     }
 
 }

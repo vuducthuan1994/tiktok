@@ -62,15 +62,17 @@ router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
     const account = req.params.account;
     const id = req.params.id;
     let topTrendPost = getTrendVideo(24);
+    let sliderTrendPosts = getTrendVideo(20);
     let postDetail = getDetailPost(account, id);
     let userInfo = getUserInfo(account);
-    Promise.all([topTrendPost, postDetail, userInfo]).then(values => {
+    Promise.all([topTrendPost, postDetail, userInfo, sliderTrendPosts]).then(values => {
         console.log(values);
         res.render('client/detail-video', {
             layout: 'client.hbs',
             userInfo: values[2] ? values[2] : {},
             videoInfo: values[1] ? values[1] : {},
             topTrendPost: values[0] ? values[0].collector : [],
+            sliderTrendPosts: values[3] ? values[3].collector : [],
         });
     });
 
