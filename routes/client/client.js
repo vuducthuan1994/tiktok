@@ -6,7 +6,7 @@ const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: process.env.CACHE_TIME });
 const Proxys = require('../../models/proxyModel');
 
-
+const rp = require('request-promise');
 const util = require('../../helper/Helper');
 const { ObjectId } = require('mongodb').ObjectID;
 // sitemap import lib
@@ -19,7 +19,7 @@ const TikTokScraper = require('tiktok-scraper');
 
 
 router.use(function(req, res, next) {
-    console.log("next");
+
     next();
 });
 
@@ -32,6 +32,7 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 
 // Trang chu
 router.get('/', async function(req, res) {
+    // test();
     let topTrendPost = await getTrendVideo(24);
     res.render('client/index', {
             layout: 'client.hbs',
@@ -55,6 +56,27 @@ router.get(`/${process.env.R_POPULAR}`, function(req, res) {
     });
 
 });
+
+// let test = async function() {
+//     var options = {
+//         uri: 'https://t.tiktok.com/api/challenge/detail/?challengeName=vudieukimino&language=en&verifyFp=verify_kbxfrr3o_6JHDn79R_CDMm_4ikL_9cow_WWPGHHinSvuz&_signature=_02B4Z6wo00901DO0.1AAAIBAW-vVZu6u-9gztfvAAFIfea',
+
+//         headers: {
+//             'User-Agent': 'Request-Promise'
+//         },
+//         json: true // Automatically parses the JSON string in the response
+//     };
+//     rp(options)
+//         .then(function(repos) {
+//             console.log(repos);
+//         })
+//         .catch(function(err) {
+//             // API call failed...
+//             console.log(err);
+//         });
+
+
+// }
 
 // man video
 router.get(`/:account/${process.env.R_TIKTOK_VIDEO}/:id`, function(req, res) {
@@ -81,7 +103,7 @@ router.get(`/:music/${process.env.R_TIKTOK_MUSIC}/:musicId`, function(req, res) 
     const musicId = req.params.musicId;
     let posts = getPostByMusicId(musicId, 20);
     Promise.all([posts]).then(values => {
-        console.log(values[0].posts[0].musicMeta);
+
 
         res.render('client/tiktok-music', {
             layout: 'client.hbs',
@@ -97,6 +119,7 @@ let getPostByMusicId = function(musicId, number) {
     return new Promise(async function(reslove, reject) {
         try {
             const posts = await TikTokScraper.music(musicId, { number: number });
+            console.log(posts)
             let hashTags = [];
             posts.collector.forEach((item) => {
                 hashTags = hashTags.concat(item.hashtags)
@@ -250,6 +273,7 @@ let getVideoMeta = function(account, postId) {
         const webVideoUrl = `https://www.tiktok.com/@${account}/video/${postId}`;
         try {
             const postDetail = await TikTokScraper.getVideoMeta(webVideoUrl);
+            console.log(postDetail);
             reslove(postDetail)
         } catch (error) {
             reslove(null);
