@@ -81,9 +81,11 @@ var auth = require('./routes/auth')(passport);
 var admin = require('./routes/admin');
 var client = require('./routes/client/client');
 
+app.use('/', client);
+
 app.use('/', auth);
 app.use('/admin', admin);
-app.use('/', client);
+
 
 
 

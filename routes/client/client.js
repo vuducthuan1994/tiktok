@@ -44,14 +44,16 @@ router.get('/', async function(req, res) {
 });
 
 // Man Popular video
-router.get(`/${process.env.R_POPULAR}`, async function(req, res) {
+router.get(`/${process.env.R_POPULAR}`, function(req, res) {
 
-    let topTrendPost = await getTrendVideo(100);
-
-    res.render('client/popular', {
-        layout: 'client.hbs',
-        topTrendPost: topTrendPost.collector
+    let topTrendPost = getTrendVideo(50);
+    Promise.all([topTrendPost]).then(values => {
+        res.render('client/popular', {
+            layout: 'client.hbs',
+            topTrendPost: values[0].collector,
+        });
     });
+
 });
 
 // man detail
@@ -59,7 +61,7 @@ router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
 
     const account = req.params.account;
     const id = req.params.id;
-    let topTrendPost = getTrendVideo(20);
+    let topTrendPost = getTrendVideo(24);
     let postDetail = getDetailPost(account, id);
     let userInfo = getUserInfo(account);
     Promise.all([topTrendPost, postDetail, userInfo]).then(values => {
@@ -68,8 +70,9 @@ router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
             layout: 'client.hbs',
             userInfo: values[2] ? values[2] : {},
             videoInfo: values[1] ? values[1] : {},
+            topTrendPost: values[0] ? values[0].collector : [],
         });
-    })
+    });
 
 
 });

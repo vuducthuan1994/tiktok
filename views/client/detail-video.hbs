@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
+
+
 {{>client/header}}
 <style type="text/css">
     .searchresult {
@@ -71,7 +74,9 @@
                                 <div style="width:100%; text-align:center;margin-bottom:10px;" class="videoMusicInfo">
                                     <p><a
                                             href="https://tubzi.com/neetubisht-original-sound/tiktok-music/6842619606457256705">
-                                            <i class="fa fa-music" aria-hidden="true"></i> {{videoInfo.musicMeta.musicAuthor}} - {{videoInfo.musicMeta.musicName}}</a></p>
+                                            <i class="fa fa-music" aria-hidden="true"></i>
+                                            {{videoInfo.musicMeta.musicAuthor}} - {{videoInfo.musicMeta.musicName}}</a>
+                                    </p>
                                 </div>
                                 <div style="text-align:center;"> <video id="player" autoplay="" playsinline=""
                                         controls="" loop="" class="narrowVideo"
@@ -86,32 +91,130 @@
                             <p class="photoAllTags"> <a href="https://tubzi.com//tiktok-tag">#</a></p>
                             <li class="pp4 pp4Detail"> <span
                                     title="@neetubisht- Neetu Bisht TubZi TikTok Video Like Count" class="photolike"> <i
-                                        class="fa fa-heart-o" aria-hidden="true"></i> {{numberWithCommas videoInfo.diggCount}}</span> <span
+                                        class="fa fa-heart-o" aria-hidden="true"></i>
+                                    {{numberWithCommas videoInfo.diggCount}}</span> <span
                                     title="@neetubisht- Neetu Bisht TubZi TikTok Video Comment Count"
-                                    class="photocomment"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{numberWithCommas videoInfo.commentCount}}</span>
+                                    class="photocomment"> <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                    {{numberWithCommas videoInfo.commentCount}}</span>
                                 <span title="@neetubisht- Neetu Bisht TubZi TikTok Video Share Count"
-                                    class="photocomment"> <i class="fa fa-share" aria-hidden="true"></i> {{numberWithCommas videoInfo.shareCount}}</span>
+                                    class="photocomment"> <i class="fa fa-share" aria-hidden="true"></i>
+                                    {{numberWithCommas videoInfo.shareCount}}</span>
                             </li>
                             <li>
                                 <p class="videoExplain">This video was published by <i>TikTok App</i> 6 hours ago by
-                                    <strong>Neetu Bisht</strong> (neetubisht). Video {{numberWithCommas videoInfo.diggCount}} Liked by tiktok users, has
-                                    received {{numberWithCommas videoInfo.commentCount}} comments and has been published {{numberWithCommas videoInfo.shareCount}} times in total. </p>
+                                    <strong>Neetu Bisht</strong> (neetubisht). Video
+                                    {{numberWithCommas videoInfo.diggCount}} Liked by tiktok users, has
+                                    received {{numberWithCommas videoInfo.commentCount}} comments and has been published
+                                    {{numberWithCommas videoInfo.shareCount}} times in total. </p>
                             </li>
                             <li> </li>
-                            <li class="pp5"> <a class="ppa ppa1"
-                                    href="https://v19.tiktokcdn.com/d4a608f5d22543ffbc39017717ac3336/5ef68df7/video/tos/useast2a/tos-useast2a-pve-0068/1d1db6ec0cd04f31bc4f82c584a37fb8/?a=1233&amp;br=2654&amp;bt=1327&amp;cr=0&amp;cs=0&amp;dr=0&amp;ds=3&amp;er=&amp;l=20200626180809010189074148564CDB44&amp;lr=tiktok_m&amp;mime_type=video_mp4&amp;qs=0&amp;rc=MzdlOGQ0a2l3dTMzZjczM0ApaTw0Z2ZkNmU6N2U6PGZlOWc1Ll4wLW5ecG5fLS0yMTZzczNjMmIwMF4xLWEwMC1jMmM6Yw%3D%3D&amp;vl=&amp;vr="
-                                    download=""><i class="fa fa-download"></i> Download This Video</a> <a
-                                    class="ppa ppa1"
+                            <li class="pp5"> <a class="ppa ppa1" href="{{videoInfo.videoUrl}}" download=""><i
+                                        class="fa fa-download"></i> Download This Video</a> <a class="ppa ppa1"
                                     href="https://tubzi.com/neetubisht/tiktok-user/180450961470111745"><i
                                         class="fa fa-search"></i>Other Videos</a> </li>
                         </ul>
                     </div>
                     <h2 class="phtp1">TikTok Popular Videos</h2>
+                    <div id="userStoryFeed">
+
+                        <div id="stroiesGallery" class="swiper-container swiper-container-horizontal">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a
+                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
+                                        <figure><img
+                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
+                                                class="swiper-lazy"
+                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
+                                        </figure>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide"><a
+                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
+                                        <figure><img
+                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
+                                                class="swiper-lazy"
+                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
+                                        </figure>
+                                    </a>
+                                </div>
+
+
+                                <div class="swiper-slide"><a
+                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
+                                        <figure><img
+                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
+                                                class="swiper-lazy"
+                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
+                                        </figure>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide"><a
+                                        href="https://tubzi.com/robertvega06/tiktok-video/6820880161483803910">
+                                        <figure><img
+                                                data-src="https://p16-tiktok-va.ibyteimg.com/obj/tos-maliva-p-0068/d5052fae50dd411f87715aea7f477f7e_1588109923?x-expires=1593399600&amp;x-signature=DfNqGWacdi3RWRHMhvZnQ1pumSE%3D"
+                                                class="swiper-lazy"
+                                                alt="Thankful to still have by my side ❤️ #grandpa #beforeandafter #fyp #foryoupage #iloveyou">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev slider-button"><i class="fa fa-chevron-left"></i></div>
+                            <div class="swiper-button-next slider-button"><i class="fa fa-chevron-right"></i></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style type="text/css">
+    .mostPopularTags {
+        margin-bottom: 25px;
+    }
+
+    .mostPopularTags .relatedTags li a {
+        padding: 5px 6px;
+    }
+
+    .mostPopularTags .relatedTags li {
+        margin: 3px 3px;
+    }
+
+    .tagHeader h3 {
+        font-weight: normal
+    }
+</style>
+
+<div class="container tagHeader mostPopularTags">
+    <h3>Popular TikTok Hashtags</h3>
+    <ul class="relatedTags">
+        <li><a href="https://tubzi.com/feature/tiktok-tag/12883">#<strong>feature</strong></a></li>
+        <li><a href="https://tubzi.com/life/tiktok-tag/5434">#<strong>life</strong></a></li>
+        <li><a href="https://tubzi.com/celeblookalike/tiktok-tag/7152619">#<strong>celeblookalike</strong></a></li>
+        <li><a href="https://tubzi.com/nike/tiktok-tag/9789">#<strong>nike</strong></a></li>
+        <li><a href="https://tubzi.com/yannyorlaurel/tiktok-tag/1600619100574725">#<strong>yannyorlaurel</strong></a>
+        </li>
+        <li><a href="https://tubzi.com/foryoupage/tiktok-tag/88764338">#<strong>foryoupage</strong></a></li>
+        <li><a href="https://tubzi.com/footshake/tiktok-tag/11732755">#<strong>footshake</strong></a></li>
+        <li><a href="https://tubzi.com/fireworks/tiktok-tag/6336">#<strong>fireworks</strong></a></li>
+        <li><a href="https://tubzi.com/belgium/tiktok-tag/18599">#<strong>belgium</strong></a></li>
+        <li><a href="https://tubzi.com/couplegoals/tiktok-tag/43029">#<strong>couplegoals</strong></a></li>
+        <li><a href="https://tubzi.com/teamgood/tiktok-tag/6474409">#<strong>teamgood</strong></a></li>
+        <li><a href="https://tubzi.com/sweden/tiktok-tag/13076">#<strong>sweden</strong></a></li>
+        <li><a href="https://tubzi.com/love/tiktok-tag/4231">#<strong>love</strong></a></li>
+    </ul>
+</div>
+<div class="container tagHeader">
+    <h3>Discover Tiktok Popular Videos</h3>
+
+    {{#each topTrendPost}}
+    {{>client/post-item}}
+    {{/each}}
+</div>
+
 {{>client/footer}}
 <script type="text/javascript"> activePage = 'Top Videos';</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
