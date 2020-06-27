@@ -56,16 +56,16 @@ router.get(`/${process.env.R_POPULAR}`, function(req, res) {
 
 });
 
-// man detail
-router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
+// man video
+router.get(`/:account/${process.env.R_TIKTOK_VIDEO}/:id`, function(req, res) {
 
     const account = req.params.account;
     const id = req.params.id;
     let topTrendPost = getTrendVideo(24);
     let sliderTrendPosts = getTrendVideo(20);
-    let postDetail = getDetailPost(account, id);
+    let videoMeta = getVideoMeta(account, id);
     let userInfo = getUserInfo(account);
-    Promise.all([topTrendPost, postDetail, userInfo, sliderTrendPosts]).then(values => {
+    Promise.all([topTrendPost, videoMeta, userInfo, sliderTrendPosts]).then(values => {
         res.render('client/detail-video', {
             layout: 'client.hbs',
             userInfo: values[2] ? values[2] : {},
@@ -74,9 +74,49 @@ router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
             sliderTrendPosts: values[3] ? values[3].posts : [],
         });
     });
+});
 
+// man audio 
+router.get(`/:music/${process.env.R_TIKTOK_MUSIC}/:musicId`, function(req, res) {
+    const musicId = req.params.musicId;
+    let posts = getPostByMusicId(musicId, 20);
+    Promise.all([posts]).then(values => {
+        console.log(values[0].posts[0].musicMeta);
+
+        res.render('client/tiktok-music', {
+            layout: 'client.hbs',
+            posts: values[0].posts ? values[0].posts : [],
+            hashTags: values[0].hashTags ? values[0].hashTags : [],
+            musicMeta: values[0].posts.length > 0 ? values[0].posts[0].musicMeta : {}
+        });
+    });
 
 });
+
+let getPostByMusicId = function(musicId, number) {
+    return new Promise(async function(reslove, reject) {
+        try {
+            const posts = await TikTokScraper.music(musicId, { number: number });
+            let hashTags = [];
+            posts.collector.forEach((item) => {
+                hashTags = hashTags.concat(item.hashtags)
+            });
+            let result = {
+                posts: posts.collector,
+                hashTags: hashTags
+            }
+            reslove(result)
+        } catch (error) {
+            reslove({
+                posts: [],
+                hashTags: []
+            });
+        }
+    });
+}
+
+
+
 
 // router.get('/submit', function(req, res) {
 //     let keyword = req.query.q;
@@ -205,7 +245,7 @@ let getTrendVideo = function(number) {
     });
 }
 
-let getDetailPost = function(account, postId) {
+let getVideoMeta = function(account, postId) {
     return new Promise(async function(reslove, reject) {
         const webVideoUrl = `https://www.tiktok.com/@${account}/video/${postId}`;
         try {

@@ -206,11 +206,16 @@ module.exports = {
         return url;
     },
     createUrlDetail(account, postId) {
-        const url = `${process.env.R_DOMAIN}/${account}/${process.env.R_DETAIL_VIDEO}/${postId}`;
+        const url = `${process.env.R_DOMAIN}/${account}/${process.env.R_TIKTOK_VIDEO}/${postId}`;
         return url;
     },
     createAvatarUser(userItem) {
         return userItem.covers[0] ? userItem.covers[0] : userItem.coversMedium[0];
+    },
+    createUrlTikTokMusic(musicName, musicId) {
+        var slugMusicName = uslug(musicName, { lower: true });
+        const url = `${process.env.R_DOMAIN}/${slugMusicName}/${process.env.R_TIKTOK_MUSIC}/${musicId}`;
+        return url;
     }
 
 }

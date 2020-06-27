@@ -1,0 +1,66 @@
+{{>client/header}}
+{{>client/search}}
+<div class="container tagHeader">
+    <h1 style="line-height:28px">♫ <strong>{{musicMeta.musicAuthor}} - {{musicMeta.musicName}}</strong> <br>TikTok Music Videos</h1>
+    <div class="musicHeader">
+        <div class="imgDiv"><img
+                src="{{musicMeta.coverMedium}}"
+                alt="bxns0n - original sound" title="bxns0n - original sound"></div>
+                 <audio
+            style="width:270px;height:45px" title="bxns0n - original sound" alt="bxns0n - original sound" src={{musicMeta.playUrl}}
+            preload="none" controls="controls"> Your browser does not support the audio element. Please download and
+            listen on an external player. </audio>
+    </div>
+    <p><strong>{{musicMeta.musicAuthor}} - {{musicMeta.musicName}}</strong> - <strong>185,200</strong> Tiktok user uses </p>
+</div>
+
+<div class="container">
+    <div class="breadcrumbs">
+        <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a href="/" itemprop="url"> <span
+                    itemprop="title">TubZi </span> </a> » </div>
+        <div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"> <a
+                href="https://tubzi.com/bxns0n-original-sound/tiktok-music/6583392347092945669" itemprop="url"> <span
+                    itemprop="title">{{musicMeta.musicAuthor}} - {{musicMeta.musicName}}</span> </a> </div>
+    </div>
+
+    <div class="popularphoto">
+        <div class="row">
+            {{#each posts}}
+            {{>client/post-item}}
+            {{/each}}
+        </div>
+
+        <div class="showMore"> </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .mostPopularTags {
+        margin-bottom: 25px;
+    }
+
+    .mostPopularTags .relatedTags li a {
+        padding: 5px 6px;
+    }
+
+    .mostPopularTags .relatedTags li {
+        margin: 3px 3px;
+    }
+
+    .tagHeader h3 {
+        font-weight: normal
+    }
+</style>
+
+<div class="container tagHeader mostPopularTags">
+    <h3>Popular TikTok Hashtags</h3>
+    <ul class="relatedTags">
+
+        {{#each hashTags}}
+        <li title="{{this.title}}"><a href="https://tubzi.com/beach/tiktok-tag/5481">#<strong>{{this.name}}</strong></a></li>
+
+        {{/each}}
+    </ul>
+</div>
+<script type="text/javascript"> activePage = '';</script>
+{{>client/footer}}
