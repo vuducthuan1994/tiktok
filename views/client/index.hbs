@@ -1,4 +1,3 @@
-
 {{>client/header}}
 <div class="search100" style="background-image:url('/img/tiktok_viewer-background.jpg')">
     <div class="coverphoto-gradient"></div>
@@ -61,25 +60,10 @@
     <div class="container tagHeader mostPopularTags">
         <h3>Popular TikTok Hashtags</h3>
         <ul class="relatedTags">
-            <li><a href="https://tubzi.com/forex/tiktok-tag/607766">#<strong>forex</strong></a></li>
-            <li><a
-                    href="https://tubzi.com/mercuryinretrograde/tiktok-tag/45590370">#<strong>mercuryinretrograde</strong></a>
-            </li>
-            <li><a href="https://tubzi.com/cook/tiktok-tag/8473">#<strong>cook</strong></a></li>
-            <li><a href="https://tubzi.com/comedy/tiktok-tag/1606334392378370">#<strong>comedy</strong></a></li>
-            <li><a href="https://tubzi.com/forextrader/tiktok-tag/16889414">#<strong>forextrader</strong></a></li>
-            <li><a
-                    href="https://tubzi.com/10yearchallenge/tiktok-tag/1612955802234886">#<strong>10yearchallenge</strong></a>
-            </li>
-            <li><a href="https://tubzi.com/belgium/tiktok-tag/18599">#<strong>belgium</strong></a></li>
-            <li><a
-                    href="https://tubzi.com/filtermakeover/tiktok-tag/1601946379913221">#<strong>filtermakeover</strong></a>
-            </li>
-            <li><a href="https://tubzi.com/footshake/tiktok-tag/11732755">#<strong>footshake</strong></a></li>
-            <li><a href="https://tubzi.com/polishgirl/tiktok-tag/67458">#<strong>polishgirl</strong></a></li>
-            <li><a href="https://tubzi.com/creditcard/tiktok-tag/187587">#<strong>creditcard</strong></a></li>
-            <li><a href="https://tubzi.com/finance/tiktok-tag/761210">#<strong>finance</strong></a></li>
-            <li><a href="https://tubzi.com/russia/tiktok-tag/14927">#<strong>russia</strong></a></li>
+            {{#each hashTags}}
+            <li title="{{this.title}}"><a href="https://tubzi.com/russia/tiktok-tag/14927">#<strong>{{this.name}}</strong></a></li>
+
+            {{/each}}
 
         </ul>
     </div>
@@ -95,9 +79,9 @@
             {{/each}}
         </div>
     </div>
-    <div class="showMore"> <a class="" href="{{createPopularUrl}}"><i class="fa fa-search-plus"
-                aria-hidden="true"></i> More Videos</a> </div>
+    <div class="showMore"> <a class="" href="{{createPopularUrl}}"><i class="fa fa-search-plus" aria-hidden="true"></i>
+            More Videos</a> </div>
 </div>
-  <script type="text/javascript"> activePage = 'Home';</script>
+<script type="text/javascript"> activePage = 'Home';</script>
 
 {{>client/footer}}

@@ -33,11 +33,10 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 // Trang chu
 router.get('/', async function(req, res) {
     let topTrendPost = await getTrendVideo(24);
-    console.log(topTrendPost.collector[0])
     res.render('client/index', {
             layout: 'client.hbs',
-            topTrendPost: topTrendPost.collector
-
+            topTrendPost: topTrendPost.posts,
+            hashTags: topTrendPost.hashTags
         }
 
     );
@@ -50,7 +49,8 @@ router.get(`/${process.env.R_POPULAR}`, function(req, res) {
     Promise.all([topTrendPost]).then(values => {
         res.render('client/popular', {
             layout: 'client.hbs',
-            topTrendPost: values[0].collector,
+            topTrendPost: values[0].posts,
+            hashTags: values[0].hashTags
         });
     });
 
@@ -66,13 +66,12 @@ router.get(`/:account/${process.env.R_DETAIL_VIDEO}/:id`, function(req, res) {
     let postDetail = getDetailPost(account, id);
     let userInfo = getUserInfo(account);
     Promise.all([topTrendPost, postDetail, userInfo, sliderTrendPosts]).then(values => {
-        console.log(values);
         res.render('client/detail-video', {
             layout: 'client.hbs',
             userInfo: values[2] ? values[2] : {},
             videoInfo: values[1] ? values[1] : {},
-            topTrendPost: values[0] ? values[0].collector : [],
-            sliderTrendPosts: values[3] ? values[3].collector : [],
+            topTrendPost: values[0] ? values[0].posts : [],
+            sliderTrendPosts: values[3] ? values[3].posts : [],
         });
     });
 
@@ -188,9 +187,20 @@ let getTrendVideo = function(number) {
     return new Promise(async function(reslove, reject) {
         try {
             const posts = await TikTokScraper.trend('', { number: number });
-            reslove(posts)
+            let hashTags = [];
+            posts.collector.forEach((item) => {
+                hashTags = hashTags.concat(item.hashtags)
+            });
+            let result = {
+                posts: posts.collector,
+                hashTags: hashTags
+            }
+            reslove(result)
         } catch (error) {
-            reslove([]);
+            reslove({
+                posts: [],
+                hashTags: []
+            });
         }
     });
 }
