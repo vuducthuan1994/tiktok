@@ -57,7 +57,7 @@
     <ul class="relatedTags">
 
         {{#each hashTags}}
-        <li title="{{this.title}}"><a href="https://tubzi.com/beach/tiktok-tag/5481">#<strong>{{this.name}}</strong></a></li>
+               <li title="{{this.title}}"><a href="{{createUrlHashTag this.name this.id}}">#<strong>{{this.name}}</strong></a></li>
 
         {{/each}}
     </ul>

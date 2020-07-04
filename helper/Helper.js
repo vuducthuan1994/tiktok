@@ -216,6 +216,10 @@ module.exports = {
         var slugMusicName = uslug(musicName, { lower: true });
         const url = `${process.env.R_DOMAIN}/${slugMusicName}/${process.env.R_TIKTOK_MUSIC}/${musicId}`;
         return url;
+    },
+    createUrlHashTag(tagName, tagId) {
+        let url = `${process.env.R_DOMAIN}/${tagName}/${process.env.R_HASHTAG}/${tagId}`;
+        return url;
     }
 
 }

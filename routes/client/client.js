@@ -6,7 +6,6 @@ const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: process.env.CACHE_TIME });
 const Proxys = require('../../models/proxyModel');
 
-const rp = require('request-promise');
 const util = require('../../helper/Helper');
 const { ObjectId } = require('mongodb').ObjectID;
 // sitemap import lib
@@ -15,6 +14,7 @@ const { createGzip } = require('zlib')
 let sitemap;
 
 
+var rp = require('request-promise');
 const TikTokScraper = require('tiktok-scraper');
 
 
@@ -32,7 +32,7 @@ router.get(`/${process.env.R_SEARCH}/:keyword`, async function(req, res) {
 
 // Trang chu
 router.get('/', async function(req, res) {
-    // test();
+
     let topTrendPost = await getTrendVideo(24);
     res.render('client/index', {
             layout: 'client.hbs',
@@ -42,6 +42,7 @@ router.get('/', async function(req, res) {
 
     );
 });
+
 
 // Man Popular video
 router.get(`/${process.env.R_POPULAR}`, function(req, res) {
@@ -57,26 +58,26 @@ router.get(`/${process.env.R_POPULAR}`, function(req, res) {
 
 });
 
-// let test = async function() {
-//     var options = {
-//         uri: 'https://t.tiktok.com/api/challenge/detail/?challengeName=vudieukimino&language=en&verifyFp=verify_kbxfrr3o_6JHDn79R_CDMm_4ikL_9cow_WWPGHHinSvuz&_signature=_02B4Z6wo00901DO0.1AAAIBAW-vVZu6u-9gztfvAAFIfea',
-
-//         headers: {
-//             'User-Agent': 'Request-Promise'
-//         },
-//         json: true // Automatically parses the JSON string in the response
-//     };
-//     rp(options)
-//         .then(function(repos) {
-//             console.log(repos);
-//         })
-//         .catch(function(err) {
-//             // API call failed...
-//             console.log(err);
-//         });
 
 
-// }
+// man hashtag
+
+router.get(`/:tagName/${process.env.R_HASHTAG}/:tagId`, function(req, res) {
+    const tagName = req.params.tagName;
+    const tagId = req.params.tagId;
+    let posts = getPostsByHashTag(tagId, 30);
+    let hashTagInfo = getHashtagInfo(tagName);
+    Promise.all([posts, hashTagInfo]).then(values => {
+        console.log(values);
+
+        res.render('client/hashtag', {
+            layout: 'client.hbs',
+            hashTagInfo: values[1] ? values[1] : {},
+            postsByHashtag: values[0] ? values[0] : [],
+        });
+    })
+
+});
 
 // man video
 router.get(`/:account/${process.env.R_TIKTOK_VIDEO}/:id`, function(req, res) {
@@ -138,8 +139,43 @@ let getPostByMusicId = function(musicId, number) {
     });
 }
 
+let getHashtagInfo = function(tagName) {
+    return new Promise(async function(reslove, reject) {
+        try {
+            const hashtag = await TikTokScraper.getHashtagInfo(tagName);
+            console.log(hashtag);
+            reslove(hashtag);
+        } catch (error) {
+            reslove({});
+        }
+    });
+}
+
+let getPostsByHashTag = function(tagName, number) {
+    return new Promise(async function(reslove, reject) {
+        try {
+            const posts = await TikTokScraper.hashtag(tagName, { number: 1 });
+            console.log(posts.collector.length);
+            reslove(posts.collector);
+        } catch (error) {
+            reslove([]);
+            console.log(error);
+        }
+    });
+}
 
 
+let getSignature = async function(url) {
+
+    var options = {
+        method: 'POST',
+        uri: 'http://45.77.240.165:8080/signature',
+        data: url
+    };
+    const data = await rp(options);
+    return data;
+
+}
 
 // router.get('/submit', function(req, res) {
 //     let keyword = req.query.q;

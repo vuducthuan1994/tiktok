@@ -39,6 +39,7 @@
         "request-promise": "^4.2.5",
         "sitemap": "^6.1.2",
         "tiktok-scraper": "^1.2.5",
+        "tiktok-signature": "^1.1.10",
         "uslug": "^1.0.4"
     }
 }

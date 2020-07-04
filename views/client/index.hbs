@@ -46,7 +46,7 @@
         <h3>Popular TikTok Hashtags</h3>
         <ul class="relatedTags">
             {{#each hashTags}}
-            <li title="{{this.title}}"><a href="https://tubzi.com/russia/tiktok-tag/14927">#<strong>{{this.name}}</strong></a></li>
+            <li title="{{this.title}}"><a href="{{createUrlHashTag this.name this.id}}">#<strong>{{this.name}}</strong></a></li>
 
             {{/each}}
 
